@@ -1,5 +1,7 @@
 package com.langhet.osterialanghet;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -30,5 +32,18 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Osteria Langhet");
+    }
+
+    public void onClickBook(View view) {
+        Uri uri = Uri.parse("smsto:" + "+393336399022");
+        Intent intent = new Intent(Intent.ACTION_SENDTO, uri);
+        intent.putExtra("sms_body", "Vorrei prenotare per il giorno");
+        String previousPackage = intent.getPackage();
+        intent.setPackage("com.whatsapp");
+        if (intent.resolveActivity(getPackageManager()) == null) {
+            // Can't start WhatsApp
+            intent.setPackage(previousPackage);
+        }
+        startActivity(intent);
     }
 }

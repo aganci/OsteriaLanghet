@@ -42,6 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         app:layout_anchorGravity="bottom|right|end"
-        android:src="@drawable/ic_whatsapp_white_24dp"/>
+        android:src="@drawable/ic_whatsapp_white_24dp"
+        android:onClick="onClickBook"/>
 
 </android.support.design.widget.CoordinatorLayout>
