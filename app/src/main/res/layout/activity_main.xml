@@ -18,6 +18,11 @@
             android:adjustViewBounds="true"
             android:src="@drawable/langhet" />
 
+        <include layout="@layout/details"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/place_image" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="70dp"
