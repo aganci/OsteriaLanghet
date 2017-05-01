@@ -46,4 +46,10 @@ public class MainActivity extends AppCompatActivity {
         }
         startActivity(intent);
     }
+
+    public void onClickMenu(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse(getResources().getString(R.string.menu_site)));
+        startActivity(browserIntent);
+    }
 }
