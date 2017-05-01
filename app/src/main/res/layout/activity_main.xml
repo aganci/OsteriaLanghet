@@ -1,34 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.langhet.osterialanghet.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.langhet.osterialanghet.MainActivity">
+
+        <ImageView
+            android:id="@+id/place_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:adjustViewBounds="true"
+            android:src="@drawable/langhet" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/dark_gradient"/>
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:fitsSystemWindows="true"
+            android:theme="@style/ToolbarTheme">
+
+        </android.support.v7.widget.Toolbar>
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        app:layout_anchor="@id/place_image"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:adjustViewBounds="true"
-        android:src="@drawable/langhet" />
+        android:layout_margin="16dp"
+        app:layout_anchorGravity="bottom|right|end"
+        android:src="@drawable/ic_whatsapp_white_24dp"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/dark_gradient"/>
-
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_alignParentTop="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
-        android:fitsSystemWindows="true"
-        android:theme="@style/ToolbarTheme">
-
-    </android.support.v7.widget.Toolbar>
-</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>
