@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickBook(View view) {
-        Uri uri = Uri.parse("smsto:" + "+393336399022");
+        Uri uri = Uri.parse("smsto:" + getResources().getString(R.string.booking_phone_number));
         Intent intent = new Intent(Intent.ACTION_SENDTO, uri);
         intent.putExtra("sms_body", "Vorrei prenotare per il giorno");
         String previousPackage = intent.getPackage();
