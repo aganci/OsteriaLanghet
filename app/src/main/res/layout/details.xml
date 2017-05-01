@@ -102,7 +102,7 @@
                 android:textAllCaps="true"
                 android:textColor="@color/colorAccent"
                 android:textSize="14sp"
-                android:onClick="onClickBook" />
+                android:onClick="onClickSendEmail" />
         </LinearLayout>
 
     </RelativeLayout>

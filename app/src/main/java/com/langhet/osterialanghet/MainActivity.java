@@ -47,6 +47,20 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onClickSendEmail(View view) {
+        String[] addresses = new String[] {getResources().getString(R.string.email)};
+
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Prenotazione");
+        intent.putExtra(Intent.EXTRA_TEXT, "Buongiorno,\nVorrei prenotare un tavolo per il giorno");
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+
+
     public void onClickMenu(View view) {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW,
                 Uri.parse(getResources().getString(R.string.menu_site)));
