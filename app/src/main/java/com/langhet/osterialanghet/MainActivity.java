@@ -66,4 +66,11 @@ public class MainActivity extends AppCompatActivity {
                 Uri.parse(getResources().getString(R.string.menu_site)));
         startActivity(browserIntent);
     }
+
+    public void onClickGetDirections(View view) {
+        Intent intent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("google.navigation:q=44.546449,8.1813415"));
+        intent.setPackage("com.google.android.apps.maps");
+        startActivity(intent);
+    }
 }

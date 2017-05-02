@@ -152,7 +152,7 @@
                 android:textAllCaps="true"
                 android:textColor="@color/colorAccent"
                 android:textSize="14sp"
-                />
+                android:onClick="onClickGetDirections" />
         </LinearLayout>
 
     </RelativeLayout>
