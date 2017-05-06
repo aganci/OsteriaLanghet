@@ -7,8 +7,17 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageSwitcher;
+import android.widget.ImageView;
+import android.widget.ViewSwitcher;
 
 public class MainActivity extends AppCompatActivity {
+    private static int[] IMAGES_ID = { R.drawable.langhet, R.drawable.riso_osteria_langet, R.drawable.piscina_osteria_langhet, R.drawable.bergolo };
+    private static final int IMAGES_DELAY = 4000;
+
     private Toolbar toolbar;
 
     @Override
@@ -18,6 +27,33 @@ public class MainActivity extends AppCompatActivity {
 
         makeContentAppearBehindStatusBar();
         setUpToolbar();
+        setUpImageSwitcher();
+    }
+
+    private void setUpImageSwitcher() {
+        final ImageSwitcher imageSwitcher = (ImageSwitcher) findViewById(R.id.place_image);
+        imageSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
+            public View makeView() {
+                ImageView imageView = new ImageView(getApplicationContext());
+                imageView.setAdjustViewBounds(true);
+                return imageView;
+            }
+        });
+        imageSwitcher.setInAnimation(AnimationUtils.loadAnimation(this,android.R.anim.slide_in_left));
+        imageSwitcher.setOutAnimation(AnimationUtils.loadAnimation(this,android.R.anim.slide_out_right));
+        imageSwitcher.setImageResource(IMAGES_ID[0]);
+        imageSwitcher.postDelayed(new Runnable() {
+            int index = 1;
+            @Override
+            public void run() {
+                imageSwitcher.setImageResource(IMAGES_ID[index]);
+                index++;
+                if (index >= IMAGES_ID.length) {
+                    index = 0;
+                }
+                imageSwitcher.postDelayed(this, IMAGES_DELAY);
+            }
+        }, IMAGES_DELAY);
     }
 
     private void makeContentAppearBehindStatusBar() {

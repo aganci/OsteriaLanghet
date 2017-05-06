@@ -14,12 +14,11 @@
         android:layout_height="match_parent"
         tools:context="com.langhet.osterialanghet.MainActivity">
 
-        <ImageView
+        <ImageSwitcher
             android:id="@+id/place_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:adjustViewBounds="true"
             android:src="@drawable/langhet" />
 
         <include layout="@layout/details"
