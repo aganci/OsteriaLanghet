@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.telephony.SmsManager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -71,15 +72,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickBook(View view) {
-        Uri uri = Uri.parse("smsto:" + getResources().getString(R.string.booking_phone_number));
-        Intent intent = new Intent(Intent.ACTION_SENDTO, uri);
-        intent.putExtra("sms_body", "Vorrei prenotare per il giorno");
-        String previousPackage = intent.getPackage();
-        intent.setPackage("com.whatsapp");
-        if (intent.resolveActivity(getPackageManager()) == null) {
-            // Can't start WhatsApp
-            intent.setPackage(previousPackage);
-        }
+        Uri uri = Uri.parse("sms:" + getResources().getString(R.string.booking_phone_number));
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        intent.putExtra("sms_body", "Gradirei prenotare per il giorno");
         startActivity(intent);
     }
 
